@@ -190,7 +190,6 @@ bool isAllPositive(const int arr[], const int size) {
 	return true;
 }
 
-// If all the values in the array are positive return true
 // Sums the odd numbers in the array and returns the result
 /**
  * <code>avgOddArray</code> finds the average of all the odd numbers in the array 
