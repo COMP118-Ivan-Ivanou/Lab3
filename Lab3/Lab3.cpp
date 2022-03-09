@@ -18,6 +18,8 @@
 #include <cassert>
 using namespace std;
 
+const int arr[10] = { 12, 11, 4, 6, 7, 31, -2, 54, 80, 56 };
+
 // Function prototypes
 int printMenu();
 void fillInArray(int[], const int);
@@ -35,11 +37,19 @@ void avgOddArray(const int[], const int, int&);
 int main() {
 	int choice;
 	const int SIZE = 10;
-
+	int avgOdd = 0;
 	// Initialize array price
 	int price[SIZE] = { 12, 4, 8, 1, 17, 2, 4, 2, 9, 1 };
 	// Declare array quantity and total
 	int quantity[SIZE], total[9];
+
+	//LAB3PART2:
+	int randArray[10];
+	const int size1 = 10;
+
+	for (int i = 0;i < 10;i++) {
+		randArray[i] = rand() % 100;  //Generate number between 0 to 99
+	}
 
 	// Interactive menu
 	do {
@@ -61,6 +71,15 @@ int main() {
 			// Exit
 		case 4:
 			// No code needed
+			break;
+		case 5:
+			sumOddArray(arr, size1);
+			break;
+		case 6:
+			isAllPositive(arr, size1);
+			break;
+		case 7:
+			avgOddArray(arr, size1, avgOdd);
 			break;
 		default:
 			assert(true);
@@ -167,7 +186,7 @@ int sumOddArray(const int arr[], const int size) {
 			oddSum = oddSum + arr[i];
 		}
 	}
-	return 0;
+	return oddSum;
 }
 
 // Sums the odd numbers in the array and returns the result
