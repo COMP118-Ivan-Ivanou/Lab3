@@ -23,7 +23,7 @@ const int arr[10] = { 12, 11, 4, 6, 7, 31, -2, 54, 80, 56 };
 // Function prototypes
 int printMenu();
 void fillInArray(int[], const int);
-void multArrays(const int[], const int[], int[], const int);
+void multArrays(const int[], const int[][2], int[], const int);
 void displayArray(const int[], const int);
 int sumOddArray(const int[], const int);
 bool isAllPositive(const int[], const int);
@@ -41,7 +41,7 @@ int main() {
 	// Initialize array price
 	int price[SIZE] = { 12, 4, 8, 1, 17, 2, 4, 2, 9, 1 };
 	// Declare array quantity and total
-	int quantity[SIZE], total[9];
+	int quantity[SIZE], total[9], total1[SIZE][2];
 
 	//LAB3PART2:
 	int randArray[10];
@@ -62,7 +62,7 @@ int main() {
 			break;
 			// Calculate total
 		case 2:
-			multArrays(quantity, total, price, SIZE);
+			multArrays(quantity, total1, price, SIZE);
 			break;
 			// Print total
 		case 3:
@@ -141,13 +141,16 @@ void fillInArray(int arr[], const int size) {
  * @param arrDest The array containing the source elements.
  * @param size The size of the arrays.
  */
-void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], const int size) {
+void multArrays(const int arrQuantity[], const int arrPrice[][2], int arrTotal[], const int size) {
 	assert(size > 0);
 
 	const int VAT = 21;
 
 	for (int i = 0; i <= size; ++i) {
-		arrTotal[i] = ((arrQuantity[i] + arrPrice[i + 1]) * VAT) / 100;
+		arrTotal[i] = ((arrQuantity[i] + arrPrice[i + 1][0]) * VAT) / 100;
+	}
+	for (int i = 0; i <= size; i++) {
+		arrTotal[i] = arrQuantity[i] + arrPrice[i + 1][1];
 	}
 }
 
