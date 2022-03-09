@@ -144,8 +144,10 @@ void fillInArray(int arr[], const int size) {
 void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], const int size) {
 	assert(size > 0);
 
+	const int VAT = 21;
+
 	for (int i = 0; i <= size; ++i) {
-		arrTotal[i] = arrQuantity[i] + arrPrice[i + 1];
+		arrTotal[i] = ((arrQuantity[i] + arrPrice[i + 1]) * VAT) / 100;
 	}
 }
 
