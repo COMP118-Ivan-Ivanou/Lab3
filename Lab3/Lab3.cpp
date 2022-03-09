@@ -135,11 +135,11 @@ void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], c
  * array. In addition the function sums up the value of all the elements and
  * print the total.
  * <BR>
- * @param ar The array containing the values
+ * @param arr The array containing the values
  * @param size The size of the array.
  */
 void displayArray(const int arr[], const int size) {
-	int sum;
+	int sum = 0;
 
 	for (int i = 1; i < size; ++i) {
 		cout << "\nValue at " << i << ": " << arr[i];
@@ -150,18 +150,67 @@ void displayArray(const int arr[], const int size) {
 }
 
 // Sums the odd numbers in the array and returns the result
+/**
+ * <code>sumOddArray</code> prints the value of sum of odd numbers in array
+ * <BR>
+ * @param arr The array containing the values
+ * @param size The size of the array.
+ */
 int sumOddArray(const int arr[], const int size) {
-	//@TODO: You will need to complete this. Including makeing the appropriate comment header
+	int oddSum = 0;
+
+	for (int i = 0; i < size; ++i) {
+		if (arr[i] % 2 == 0) {
+			continue;
+		}
+		else {
+			oddSum = oddSum + arr[i];
+		}
+	}
 	return 0;
+}
+
+// Sums the odd numbers in the array and returns the result
+/**
+ * <code>isAllPositive</code> returns true is all numbers in array are positive
+ * and returns false is there is some negative numbers
+ * <BR>
+ * @param arr The array containing the values
+ * @param size The size of the array.
+ */
+bool isAllPositive(const int arr[], const int size) {
+	for (int i = 0; i < size; ++i) {
+		if (arr[i] < 0) {
+			return false;
+		}
+		else {
+			continue;
+		}
+	}
+	return true;
 }
 
 // If all the values in the array are positive return true
-bool isAllPositive(const int arr[], const int size) {
-	//@TODO: You will need to complete this. Including makeing the appropriate comment header
-	return 0;
-}
-
-// Finds the average of all the odd numbers in the array and stores this in the last argument
+// Sums the odd numbers in the array and returns the result
+/**
+ * <code>avgOddArray</code> finds the average of all the odd numbers in the array 
+ * and stores this in the last argument
+ * <BR>
+ * @param arr The const array containing the values
+ * @param size The const size of the array.
+ * @param avgOdd The int parameter which contains the result value
+ */
 void avgOddArray(const int arr[], const int size, int& avgOdd) {
-	//@TODO: You will need to complete this. Including makeing the appropriate comment header
+	double oddSum = 0, oddCount = 0;
+	for (int i = 0; i < 6; ++i) {   
+		if (arr[i] % 2 == 0) {
+			continue;
+		}
+		else {    
+			oddSum = oddSum + arr[i];
+			oddCount++;
+		}
+	}
+	
+	avgOdd = oddSum / oddCount;
 }
