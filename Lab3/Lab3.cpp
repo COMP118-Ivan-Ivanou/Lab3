@@ -167,7 +167,7 @@ int sumOddArray(const int arr[], const int size) {
 			oddSum = oddSum + arr[i];
 		}
 	}
-	return 0;
+	return oddSum;
 }
 
 // Sums the odd numbers in the array and returns the result
